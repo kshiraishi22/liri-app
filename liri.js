@@ -31,7 +31,7 @@ let input = process.argv[3]
 //     console.log("Title: " + response.data.Title);  
 //     console.log("Year Released: " + response.data.Released);  
 //     console.log("imdbRating: " + response.data.imdbRating);  
-//     // console.log("Rotten Tomatoes rating: " + response.data.Ratings.Value);  
+//     console.log("Rotten Tomatoes rating: " + response.data.Ratings[1].Value);  
 //     console.log("Country: " + response.data.Country);  
 //     console.log("Language: " + response.data.Language);  
 //     console.log("Plot: " + response.data.Plot);  
@@ -44,27 +44,26 @@ let input = process.argv[3]
 // }
 
   // Axios BandsInTown API 
-  const concertFunction = () => {
-    axios ({
-      method: "Get",
-      url: `https://rest.bandsintown.com/artists/` + input + `/events?app_id=codingbootcamp`
-    })
+  // const concertFunction = () => {
+  //   axios ({
+  //     method: "Get",
+  //     url: `https://rest.bandsintown.com/artists/` + input + `/events?app_id=codingbootcamp`
+  //   })
     
-    .then(function(response) {
-      console.log("Name of Venue: " + response.data[0].venue.name);
-      console.log("Venue Location: " + response.data[0].venue.city);
-      console.log("Date of Event: " + moment(response.data[0].datetime).format("MMMM Do YYYY"));
-    })
-    .catch(function (error) {
-      console.log(error);
-    })
-  }
-
+  //   .then(function(response) {
+  //     console.log("Name of Venue: " + response.data[0].venue.name);
+  //     console.log("Venue Location: " + response.data[0].venue.city);
+  //     console.log("Date of Event: " + moment(response.data[0].datetime).format("MMMM Do YYYY"));
+  //   })
+  //   .catch(function (error) {
+  //     console.log(error);
+  //   })
+  // }
 
 // Switch function for all the commands
   switch (process.argv[2]) {
     case "concert-this":
-      concertFunction();
+      // concertFunction();
       break;
     case "spotify-this-song":
       spotifyFunction;

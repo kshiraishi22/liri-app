@@ -3,23 +3,24 @@ const axios = require("axios");
 const moment = require("moment");
 const Spotify = require("node-spotify-api");
 const keys = require("./keys.js");
-const spotify = new Spotify(keys.spotify)
-let input = process.argv[3]
+const spotify = new Spotify(keys.spotify);
+let input = process.argv[3];
+var fs = require("fs");
 
 // Spotify function
-// let spotifyFunction = spotify
-//   .search({ type: "track", query: input}).then(function (response) {
-//     if( response.tracks.items.length ){
-//       console.log("Artist Name: " + response.tracks.items[0].artists[0].name);
-//       console.log("Song Name: " + response.tracks.items[0].name);
-//       console.log("Album Name: " + response.tracks.items[0].album.name);
-//       console.log("Preview Link on Spotify: " + response.tracks.items[0].external_urls.spotify);
-//     } else {
-//       console.log("No matches for " + input);
-//     }
-//   }).catch(function (error) {
-//     console.log(error);
-//   });
+let spotifyFunction = spotify
+  .search({ type: "track", query: input}).then(function (response) {
+    if( response.tracks.items.length ){
+      console.log("Artist Name: " + response.tracks.items[0].artists[0].name);
+      console.log("Song Name: " + response.tracks.items[0].name);
+      console.log("Album Name: " + response.tracks.items[0].album.name);
+      console.log("Preview Link on Spotify: " + response.tracks.items[0].external_urls.spotify);
+    } else {
+      console.log("No matches for " + input);
+    }
+  }).catch(function (error) {
+    console.log(error);
+  });
 
 // Axios OMDB API
 // const movieFunction = () => {
@@ -60,16 +61,24 @@ let input = process.argv[3]
   //   })
   // }
 
+fs.readFile("random.txt", "utf8", function(error, data ) {
+  if (error) {
+    return console.log(error);
+  }
+  
+    console.log(data);
+})
+
 // Switch function for all the commands
   switch (process.argv[2]) {
     case "concert-this":
-      // concertFunction();
+      concertFunction();
       break;
     case "spotify-this-song":
       spotifyFunction;
       break;
     case "movie-this":
-      // movieFunction();
+      movieFunction();
       break;
     case "do-what-it-says":
       liriFunction

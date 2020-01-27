@@ -17,7 +17,7 @@ LIRI allows for a user to search for a movie, song, and/or band using the Node.j
 
    For example, typing in "node liri.js concert-this "celine dion" will return the name of the concert venue, location of the concert and the date for the celine dion concert. 
 ## GIF of App
-https://media.giphy.com/media/TJZxLNNGIjXFBAcoTU/giphy.gif[GIF](https://media.giphy.com/media/TJZxLNNGIjXFBAcoTU/giphy.gif)
+https://media.giphy.com/media/TJZxLNNGIjXFBAcoTU/giphy.gif
 
 ## Technologies Used for this App
 - Node.js

@@ -13,9 +13,11 @@ LIRI allows for a user to search for a movie, song, and/or band using the Node.j
   - spotify-this-song
   - movie-this
   - do-what-it-says
-3. Once user selects one of the four commands, type in the command line the following: node          liri.js <command> "". Inside the quote will be the search input that corresponds to one of the    4 commands. 
+3. Once user selects one of the four commands, type in the command line the following: node          liri.js <command> "".          Inside the quote will be the search input that corresponds to one of the    4 commands. 
 
    For example, typing in "node liri.js concert-this "celine dion" will return the name of the concert venue, location of the concert and the date for the celine dion concert. 
+4. The command, "do-what-it-says" will take the text     inside of the random.txt file and use it to call      one of the LIRI      commands.
+
 ## GIF of App
 https://media.giphy.com/media/TJZxLNNGIjXFBAcoTU/giphy.gif
 

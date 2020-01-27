@@ -64,32 +64,34 @@ const concertFunction = () => {
 }
 
 // LIRI Function
-// const liriFunction = () => { 
-// fs.readFile("random.txt", "utf8", function(error, data ) {
-//   if (error) {
-//     return console.log(error);
-//   }
-//   var dataArr = data.split(",");
-//   command = dataArr[1];
-//   console.log(dataArr[1]);
-//   switch (dataArr[0]) {
-//     case "do-what-it-says":
-//     break;
-//       case "concert-this":
-//         concertFunction();
-//         break;
-//       case "spotify-this-song":
-//         spotifyFunction();
-//         break;
-//       case "movie-this":
-//         if (input != "") {
-//           movieFunction();
-//         }
-//         else movieFunction("Mr. Nobody");
-//         break;
-//   }
-// })
-// }
+const liriFunction = () => { 
+fs.readFile("random.txt", "utf8", function(error, data ) {
+  if (error) {
+    return console.log(error);
+  }
+  var dataArr = data.split(",");
+  command = dataArr[0];
+  input = dataArr[1];
+  // console.log(dataArr[0]);
+  // console.log(dataArr[1]);
+  switch (command) {
+    case "do-what-it-says":
+    break;
+      case "concert-this":
+        concertFunction();
+        break;
+      case "spotify-this-song":
+        spotifyFunction();
+        break;
+      case "movie-this":
+        if (input != "") {
+          movieFunction();
+        }
+        else movieFunction("Mr. Nobody");
+        break;
+  }
+})
+}
 
 // Switch function for all the commands
   switch (command) {

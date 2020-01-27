@@ -1,18 +1,22 @@
-// Dependencies and References
+// Dependencies
 const axios = require("axios");
 const moment = require("moment");
 const Spotify = require("node-spotify-api");
 const keys = require("./keys.js");
 const spotify = new Spotify(keys.spotify);
-let input = process.argv[3];
 var fs = require("fs");
+
+// Global Variables
+let input = process.argv[3];
 let command = process.argv[2];
 
-// Spotify function
+// Node Spotify
 const spotifyFunction = () => {
+  // Default song when user does not have input
   if(!input) {
     input = "The Sign"
   }
+  // Node Spotify API call
   spotify.search({ type: "track", query: input}).then(response => {
     if( response.tracks.items.length ){
       console.log("Artist Name: " + response.tracks.items[0].artists[0].name);
@@ -26,11 +30,14 @@ const spotifyFunction = () => {
     console.log(error);
   });
 }
-// Axios OMDB API
+
+// OMDB
 const movieFunction = () => {
+  // Default movie when user does not have input
   if(!input) {
     input = "Mr. Nobody"
   }
+  // Axios call
   axios({
   method: "GET",
   url: `http://www.omdbapi.com/?apikey=trilogy&t=${input}`
@@ -50,8 +57,7 @@ const movieFunction = () => {
   
   })
 }
-
-// Axios BandsInTown API 
+// BandsInTown API call
 const concertFunction = () => {
   axios ({
     method: "Get",

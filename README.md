@@ -16,7 +16,8 @@ LIRI allows for a user to search for a movie, song, and/or band using the Node.j
 3. Once user selects one of the four commands, type in the command line the following: node          liri.js <command> "". Inside the quote will be the search input that corresponds to one of the    4 commands. 
 
    For example, typing in "node liri.js concert-this "celine dion" will return the name of the concert venue, location of the concert and the date for the celine dion concert. 
-## Screenshot of App
+## GIF of App
+https://media.giphy.com/media/TJZxLNNGIjXFBAcoTU/giphy.gif[GIF](https://media.giphy.com/media/TJZxLNNGIjXFBAcoTU/giphy.gif)
 
 ## Technologies Used for this App
 - Node.js

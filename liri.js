@@ -56,7 +56,7 @@ const concertFunction = () => {
   .then(function(response) {
     console.log("Name of Venue: " + response.data[0].venue.name);
     console.log("Venue Location: " + response.data[0].venue.city);
-    console.log("Date of Event: " + moment(response.data[0].datetime).format("MMMM Do YYYY"));
+    console.log("Date of Event: " + moment(response.data[0].datetime).format("L"));
   })
   .catch(function (error) {
     console.log(error);

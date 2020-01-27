@@ -10,8 +10,10 @@ let command = process.argv[2];
 
 // Spotify function
 const spotifyFunction = () => {
-  spotify
-  .search({ type: "track", query: input}).then(response => {
+  if(!input) {
+    input = "The Sign"
+  }
+  spotify.search({ type: "track", query: input}).then(response => {
     if( response.tracks.items.length ){
       console.log("Artist Name: " + response.tracks.items[0].artists[0].name);
       console.log("Song Name: " + response.tracks.items[0].name);
@@ -26,6 +28,9 @@ const spotifyFunction = () => {
 }
 // Axios OMDB API
 const movieFunction = () => {
+  if(!input) {
+    input = "Mr. Nobody"
+  }
   axios({
   method: "GET",
   url: `http://www.omdbapi.com/?apikey=trilogy&t=${input}`
@@ -76,21 +81,18 @@ fs.readFile("random.txt", "utf8", function(error, data ) {
   // console.log(dataArr[1]);
   switch (command) {
     case "do-what-it-says":
-    break;
-      case "concert-this":
-        concertFunction();
-        break;
-      case "spotify-this-song":
-        spotifyFunction();
-        break;
-      case "movie-this":
-        if (input != "") {
-          movieFunction();
-        }
-        else movieFunction("Mr. Nobody");
-        break;
-  }
-})
+      break;
+    case "concert-this":
+      concertFunction();
+      break;
+    case "spotify-this-song":
+      spotifyFunction();
+      break;
+    case "movie-this":
+      movieFunction();
+      break;
+    }
+  })
 }
 
 // Switch function for all the commands
@@ -102,10 +104,7 @@ fs.readFile("random.txt", "utf8", function(error, data ) {
       spotifyFunction();
       break;
     case "movie-this":
-      if (input != "") {
         movieFunction();
-      }
-      else movieFunction("Mr. Nobody");
       break;
     case "do-what-it-says":
       liriFunction();
